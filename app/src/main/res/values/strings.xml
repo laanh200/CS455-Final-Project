@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Mo Money 101</string>
+    <string name="net_Budget">Month Net Budget: </string>
+    <string name="current_month_expense">Current Month Expense: </string>
+    <string name="current_month_income">Current Month Income: </string>
+    <string name="add_new_month_expense_button">Add new expense</string>
+    <string name="add_new_month_income_button">Add new income earning</string>
+
+
+    <string name="new_expense_date">Select date.</string>
+    <string name="new_expense_title">Enter expense name.</string>
+    <string name="new_expense_amount">Enter expense amount.</string>
+    <string name="new_expense_save_button">Save</string>
+
+    <string-array name="new_expense_type_spinner_array">
+        <item>Home expense</item>
+        <item>Transportation</item>
+        <item>Health</item>
+        <item>Daily living</item>
+        <item>Entertainment</item>
+        <item>Other</item>
+    </string-array>
+    <string name="expense_type_spinner_prompt">Select a type of expensive.</string>
+
+    <string name="new_income_save_button">Save</string>
+    <string name="new_income_amount">Enter income amount.</string>
+    <string name="new_income_date">Select date.</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+</resources>
