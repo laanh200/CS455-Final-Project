@@ -63,12 +63,17 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.Expense_list -> Toast.makeText(applicationContext,"clicked on list 1", Toast.LENGTH_SHORT).show()
-                R.id.Income_list -> Toast.makeText(applicationContext,"clicked on list 2", Toast.LENGTH_SHORT).show()
+                R.id.Expense_list ->{
+                    val intent_ExpenseList = Intent(this,ExpenseList::class.java)
+                    startActivity(intent_ExpenseList)
+                }
+                R.id.Income_list -> {
+                    val intent_IncomeList = Intent(this,IncomeList::class.java)
+                    startActivity(intent_IncomeList)
+                }
             }
             true
         }
-
     }
 
     /*

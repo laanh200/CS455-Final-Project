@@ -28,4 +28,18 @@
 
     <string name="open">Open</string>
     <string name="close">Close</string>
+
+    <string name="nav_view_logo">Navigation view logo</string>
+
+
+    <string name="row_expense_id">ID</string>
+    <string name="row_expense_name">Name</string>
+    <string name="row_expense_date">Date</string>
+    <string name="row_expense_type">Type</string>
+    <string name="row_expense_amount">Amount</string>
+
+    <string name="row_income_id">ID</string>
+    <string name="row_income_date">Date</string>
+    <string name="row_income_amount">Amount</string>
+
 </resources>

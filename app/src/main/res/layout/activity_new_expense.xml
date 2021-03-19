@@ -30,7 +30,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/new_expense_date"
-        android:hint="@string/new_expense_title"/>
+        android:hint="@string/new_expense_title"
+        android:inputType="text" />
 
     <Spinner
         android:id="@+id/new_expense_type_spinner"

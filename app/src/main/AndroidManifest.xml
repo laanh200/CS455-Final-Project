@@ -9,8 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoMoney101">
-        <activity android:name=".NewIncome" android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".NewExpense" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".IncomeList" android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".ExpenseList" android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".NewIncome"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".NewExpense"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
