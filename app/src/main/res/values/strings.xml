@@ -20,6 +20,7 @@
         <item>Entertainment</item>
         <item>Other</item>
     </string-array>
+
     <string name="expense_type_spinner_prompt">Select a type of expensive.</string>
 
     <string name="new_income_save_button">Save</string>

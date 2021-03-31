@@ -1,4 +1,4 @@
-package com.android.momoney101.data
+package com.android.momoney101.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

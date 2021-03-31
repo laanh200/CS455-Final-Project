@@ -5,8 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.android.momoney101.ExpenseList
 import com.android.momoney101.R
-import com.android.momoney101.data.Expense
+import com.android.momoney101.model.Expense
 
 
 
@@ -49,4 +50,14 @@ class ExpenseListAdapter:RecyclerView.Adapter<ExpenseListAdapter.MyViewHolder>()
         notifyDataSetChanged()
     }
 
+    //Function to be called by the Expenselist.kt
+    //Take the position of the expense in the adapterview
+    //Return the expense item in the expense list
+    fun getExpenseAtPosition(position: Int):Expense{
+        //Return the expense item in the expense list
+        return expenseList[position]
+    }
+
 }
+
+

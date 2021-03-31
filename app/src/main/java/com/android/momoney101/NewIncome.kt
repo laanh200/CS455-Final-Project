@@ -8,10 +8,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.android.momoney101.data.Income
-import com.android.momoney101.data.IncomeViewModel
-import com.google.android.material.datepicker.MaterialDatePicker.Builder.datePicker
-import java.util.*
+import com.android.momoney101.model.Income
+import com.android.momoney101.viewmodel.IncomeViewModel
 
 
 class NewIncome : AppCompatActivity() {
@@ -28,24 +26,34 @@ class NewIncome : AppCompatActivity() {
 
         val actionBar = supportActionBar
 
+        //Set the name of activity title
         actionBar!!.title = "New Income"
 
+        //Back to main activity
         actionBar.setDisplayHomeAsUpEnabled(true)
 
+        //link the late init variable with the item in activity_income_list.xml
         saveBtn = findViewById(R.id.new_income_save_button)
-
         incomeAmount = findViewById(R.id.new_income_amount)
-
         incomeDate = findViewById(R.id.new_income_date)
 
+        //This will create ViewModels and retain them in a store of the incomeViewModel
         mIncomeViewModel = ViewModelProvider(this).get(IncomeViewModel::class.java)
 
+        //The save button will call the savetodatabase function
         saveBtn.setOnClickListener {
-
             saveToDatabase()
+            //Return to main activity
             finish()
         }
     }
+
+    /*Function that being call to add the new income item into the database
+       An income item have 3 columns: id, date, and amount
+       date is string
+       id is integer
+       amount is in double
+    */
     private fun saveToDatabase(){
         //date picker
         val selectedDate:String =  (incomeDate.dayOfMonth).toString()+ '/' + (incomeDate.month + 1).toString()+ '/' +(incomeDate.year).toString()
@@ -53,13 +61,26 @@ class NewIncome : AppCompatActivity() {
         //the income amount
         val incomeValue = convertEditToDouble(incomeAmount)
 
+        //Check if amount is not equal to zero
         if (!(incomeValue.equals(0.0))){
+            //If not equal to zero then create an income item with the value of 3 colums
             val income = Income(0,selectedDate,incomeValue)
+            //Add to database
             mIncomeViewModel.addIncome(income)
+            //Toast for successful add
             Toast.makeText(this,"Successfully added new income!", Toast.LENGTH_SHORT).show()
+        }else{
+            //toast for unsuccessful failure
+            Toast.makeText(this,"Failure in adding new income. Item need income amount!", Toast.LENGTH_SHORT).show()
         }
     }
 
+    /*
+        This function is to be called by the saveToDatabase function
+        The purpose of function is to convert the edit text into string
+        Check if the string is empty
+        convert the string into double and return the double
+     */
     private fun convertEditToDouble(incomeAmount: EditText): Double {
 
         //convert to string

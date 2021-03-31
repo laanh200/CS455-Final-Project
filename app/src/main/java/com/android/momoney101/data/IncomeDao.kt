@@ -1,10 +1,9 @@
 package com.android.momoney101.data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
+
+import com.android.momoney101.model.Income
 
 //Data Access Object for income
 @Dao
@@ -17,4 +16,8 @@ interface IncomeDao {
     //Function that will read from the database order by ID
     @Query("SELECT * FROM IncomeListTable ORDER BY id ASC")
     fun readAllIncomeData(): LiveData<List<Income>>
+
+    //Function that will delete parameter income item from the database
+    @Delete
+    suspend fun deleteIncome(income: Income)
 }

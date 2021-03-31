@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.android.momoney101.model.Expense
 
 //Database for expense
 @Database(entities = [Expense::class], version =1, exportSchema = false)

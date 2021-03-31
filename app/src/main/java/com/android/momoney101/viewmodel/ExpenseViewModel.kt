@@ -1,9 +1,13 @@
-package com.android.momoney101.data
+package com.android.momoney101.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.android.momoney101.data.ExpenseDatabase
+import com.android.momoney101.model.Expense
+import com.android.momoney101.repository.ExpenseRepository
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -28,13 +32,21 @@ class ExpenseViewModel(application: Application): AndroidViewModel(application) 
         readAllExpenseData = repository.readAllData
     }
 
-    //This function is use add new expense to the repository
+    //This function is use add new expense by calling the addexpense function in expense repository
     fun addExpense(expense: Expense){
         //Run this code in the back ground thread
         viewModelScope.launch(Dispatchers.IO) {
             repository.addExpense(expense)
         }
     }
+
+    //This function is use delete expense by calling the deleteexpense function in expense repository
+    fun deleteExpense(expense: Expense){
+        //Run this code in the back ground thread
+        viewModelScope.launch(Dispatchers.IO) {
+        repository.deleteExpense(expense)}
+    }
 }
+
 
 

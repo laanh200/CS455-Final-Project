@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.momoney101.R
 
-import com.android.momoney101.data.Income
+import com.android.momoney101.model.Income
 
 class IncomeListAdapter:RecyclerView.Adapter<IncomeListAdapter.MyViewHolder>() {
 
@@ -42,5 +42,13 @@ class IncomeListAdapter:RecyclerView.Adapter<IncomeListAdapter.MyViewHolder>() {
         this.incomeList = income
         //Notify recyclerview for changes been made
         notifyDataSetChanged()
+    }
+
+    //Function to be called by the Incomelist.kt
+    //Take the position of the income item in the adapterview as parameter
+    //Return the income item in the income list
+    fun getIncomeAtPosition(position: Int):Income{
+        //Return the income item in the income list
+        return incomeList[position]
     }
 }

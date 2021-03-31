@@ -1,10 +1,8 @@
 package com.android.momoney101.data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
+import com.android.momoney101.model.Expense
 
 //Data Access Object for expense
 @Dao
@@ -18,4 +16,7 @@ interface ExpenseDao {
     @Query("SELECT * FROM ExpenseListTable ORDER BY id ASC")
     fun readAllExpenseData():LiveData<List<Expense>>
 
+    //Function that will delete parameter expense item from the database
+    @Delete
+    suspend fun deleteExpense(expense: Expense)
 }
