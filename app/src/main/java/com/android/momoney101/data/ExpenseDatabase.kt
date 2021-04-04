@@ -30,7 +30,7 @@ abstract class ExpenseDatabase:RoomDatabase() {
                     context.applicationContext,
                     ExpenseDatabase::class.java,
                     "ExpenseList_Database"
-                ).build()
+                ).allowMainThreadQueries().fallbackToDestructiveMigration().build()
                 //Set the instance equal to the brand new created instance
                 INSTANCE = instance
                 //return the new instance

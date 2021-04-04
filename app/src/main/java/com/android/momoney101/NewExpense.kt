@@ -14,14 +14,14 @@ import com.android.momoney101.viewmodel.ExpenseViewModel
 class NewExpense : AppCompatActivity() {
 
     //Create variables for late init
-    lateinit var expenseDate: DatePicker
-    lateinit var expenseAmount: EditText
-    lateinit var saveBtn: Button
-    lateinit var expenseName: EditText
-    lateinit var spinner: Spinner
+    private lateinit var expenseDate: DatePicker
+    private lateinit var expenseAmount: EditText
+    private lateinit var saveBtn: Button
+    private lateinit var expenseName: EditText
+    private lateinit var spinner: Spinner
     private lateinit var mExpenseViewModel: ExpenseViewModel
 
-    //Creatg a empty string variable to set the expense type later.
+    //Create a empty string variable to set the expense type later.
     var expenseType: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,7 +96,7 @@ class NewExpense : AppCompatActivity() {
         val selectedDate:String =  (expenseDate.dayOfMonth).toString()+ '/' + (expenseDate.month + 1).toString()+ '/' +(expenseDate.year).toString()
 
         //The amount
-        val expenseDollar = convertEditToDouble(expenseAmount)
+        val expenseDollar = convertEditToDouble()
 
         //If Check if the title name is empty or the amount is empty or not
         if (expenseTitle.isNotBlank() || expenseDollar.equals(0.0)){
@@ -119,9 +119,9 @@ class NewExpense : AppCompatActivity() {
         Check if the string is empty
         convert the string into double and return the double
      */
-    private fun convertEditToDouble(incomeAmount: EditText): Double {
+    private fun convertEditToDouble(): Double {
         //Convert to string
-        var expense: String = expenseAmount.getText().toString()
+        var expense: String = expenseAmount.text.toString()
 
         //Create a variable
         var expenseInDouble = 0.0
@@ -147,7 +147,7 @@ class NewExpense : AppCompatActivity() {
      */
     private fun checkTextVariables():String{
         //Convert to string
-        var name: String = expenseName.getText().toString()
+        var name: String = expenseName.text.toString()
 
         //Check if variable is empty
         if(name.isNullOrBlank()){
@@ -157,7 +157,4 @@ class NewExpense : AppCompatActivity() {
         //return expense name
         return name
     }
-
-
-
 }

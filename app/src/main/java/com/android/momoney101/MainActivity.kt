@@ -5,21 +5,28 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.Toast
-import androidx.appcompat.app.ActionBar
+import android.widget.TextView
+
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
+
 import com.google.android.material.navigation.NavigationView
+
 
 class MainActivity : AppCompatActivity() {
 
     //Create variables for linking after inflated
+    //Buttons type
     private lateinit var NewExpense_btn: Button
     private lateinit var NewIncome_btn: Button
 
+    //Attaction bar drawer toggle type
+    private lateinit var toggle: ActionBarDrawerToggle
 
-    lateinit var toggle: ActionBarDrawerToggle
+    //Navigation view
     private lateinit var navView: NavigationView
+
+    //Drawer Layout
     private lateinit var drawer:DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,10 +34,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //Linking the buttons of the main activity
-        NewExpense_btn =findViewById(R.id.add_new_monthly_expense_button)
-        NewIncome_btn = findViewById(R.id.add_new_monthly_income_button)
+        NewExpense_btn =findViewById(R.id.add_new_expense_button)
+        NewIncome_btn = findViewById(R.id.add_new_income_button)
 
-        //Linking the drawer layout
+        //Linking the drawer layout in the main activity xml
         drawer= findViewById(R.id.drawer_Layout)
 
         //Linking the action bar toggle layout between the drawer view and main activity
@@ -60,7 +67,6 @@ class MainActivity : AppCompatActivity() {
         //Link the navigation view
         navView = findViewById(R.id.nav_view)
 
-
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.Expense_list ->{
@@ -86,5 +92,6 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
 
 }

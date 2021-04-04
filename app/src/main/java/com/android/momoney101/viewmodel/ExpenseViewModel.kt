@@ -7,18 +7,21 @@ import androidx.lifecycle.viewModelScope
 import com.android.momoney101.data.ExpenseDatabase
 import com.android.momoney101.model.Expense
 import com.android.momoney101.repository.ExpenseRepository
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /*
 Expense view model
 Provide data to the UI
 Help the repository and the UI communicate
  */
-class ExpenseViewModel(application: Application): AndroidViewModel(application) {
+class ExpenseViewModel (application: Application): AndroidViewModel(application) {
+
     //Create a list of live data expense
     val readAllExpenseData: LiveData<List<Expense>>
+
     //An expense repository variable
     private val repository: ExpenseRepository
 
@@ -30,6 +33,7 @@ class ExpenseViewModel(application: Application): AndroidViewModel(application) 
         repository = ExpenseRepository(expenseDao)
         //Assign the repository read all data variable to the list of live data expense
         readAllExpenseData = repository.readAllData
+
     }
 
     //This function is use add new expense by calling the addexpense function in expense repository
@@ -46,7 +50,18 @@ class ExpenseViewModel(application: Application): AndroidViewModel(application) 
         viewModelScope.launch(Dispatchers.IO) {
         repository.deleteExpense(expense)}
     }
+
+    //This function is use to call the getTotalExpense function in the expense repository
+    // and return the value to the activity
+    fun getTotalExpense():Double{
+        return repository.getTotalExpense()
+    }
+
 }
+
+
+
+
 
 
 

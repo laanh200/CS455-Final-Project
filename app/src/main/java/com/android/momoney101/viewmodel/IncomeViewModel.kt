@@ -16,8 +16,10 @@ Provide data to the UI
 Help the repository and the UI communicate
  */
 class IncomeViewModel(application: Application):AndroidViewModel(application) {
+
     //Create a list of live data expense
     val readAllIncomeData: LiveData<List<Income>>
+
     //An expense repository variable
     private val repository: IncomeRepository
 
@@ -44,5 +46,10 @@ class IncomeViewModel(application: Application):AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteIncome(income)
         }
+    }
+    //This function is use to call the getTotalIncome function in the income repository
+    // and return the value to the activity
+    fun getTotalIncome():Double{
+        return repository.getTotalIncome()
     }
 }

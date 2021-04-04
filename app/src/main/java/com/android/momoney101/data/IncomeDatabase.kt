@@ -30,7 +30,7 @@ abstract class IncomeDatabase :RoomDatabase(){
                     context.applicationContext,
                     IncomeDatabase::class.java,
                     "IncomeList_Database"
-                ).build()
+                ).allowMainThreadQueries().fallbackToDestructiveMigration().build()
                 //Set the empty instance equal to the newly created instance
                 INSTANCE = instance
                 //return the new instance

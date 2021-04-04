@@ -2,6 +2,7 @@ package com.android.momoney101
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -16,8 +17,12 @@ class IncomeList : AppCompatActivity() {
 
     //Create late init variable of type incomeViewModel
     private lateinit var mIncomeViewModel: IncomeViewModel
+
     //Create late init variable of type Recycler View
     private lateinit var recyclerView: RecyclerView
+
+    //Create a late init variable of type Text View
+    private lateinit var current_total_income:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +38,9 @@ class IncomeList : AppCompatActivity() {
 
         //Link the recycler view variable with the income_recyclerview item in activity_income_list.xml
         recyclerView = findViewById(R.id.income_recyclerview)
+
+        //Link the textview variable with the xml textview in activity_expense_list.xml
+        current_total_income = findViewById((R.id.current_total_income))
 
         val adapter = IncomeListAdapter()
 
@@ -54,6 +62,9 @@ class IncomeList : AppCompatActivity() {
         mIncomeViewModel.readAllIncomeData.observe(this, Observer { income ->
             adapter.setData(income)
         })
+
+        //Display the total income in the list
+        getAndDisplayTotalIncome()
 
         /*Item touch helper to use as a delete item functionality
             Swipe left or right on the item will delete the item off the recycler
@@ -84,8 +95,26 @@ class IncomeList : AppCompatActivity() {
 
                 //Let the adapter know that the income item at the swiped position got deleted
                 adapter.notifyItemRemoved(position)
+
+                //Update the list total after deletion
             }
             //Attach the item touch helper to the recycler view
         }).attachToRecyclerView(recyclerView)
+    }
+
+    /*This function to being call by the oncreate function
+       To call the query in the income DAO and return the total income of all the item
+       Display the total income in the textview
+     */
+    private fun getAndDisplayTotalIncome(){
+        /*
+           Create a double variable and call the query to get the total expense of a variable
+        */
+        var sum: Double= mIncomeViewModel.getTotalIncome()
+        //Format the double variable to 2 decimal place
+        var totalIncome: String? = "%.2f".format(sum)
+
+        //Update the textview
+        current_total_income.setText("Current Total: $$totalIncome")
     }
 }

@@ -4,17 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ExpenseList"
-    android:padding="24sp">
-
+    android:padding="5sp"
+    tools:context=".ExpenseList">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/expense_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="356dp"
+        android:layout_height="628dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/current_total_expense"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/current_total_expense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#F0E68C"
+        android:text="@string/current_total_expense"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"></androidx.recyclerview.widget.RecyclerView>
-
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

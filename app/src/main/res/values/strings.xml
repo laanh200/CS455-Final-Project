@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Mo Money 101</string>
-    <string name="net_Budget">Month Net Budget: </string>
-    <string name="current_month_expense">Current Month Expense: </string>
-    <string name="current_month_income">Current Month Income: </string>
+    <string name="net_Budget">Net Budget: </string>
+    <string name="current_total_expense">Current Expense: </string>
+    <string name="current_total_income">Current Income: </string>
     <string name="add_new_month_expense_button">Add new expense</string>
     <string name="add_new_month_income_button">Add new income earning</string>
 

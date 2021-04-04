@@ -20,4 +20,8 @@ interface IncomeDao {
     //Function that will delete parameter income item from the database
     @Delete
     suspend fun deleteIncome(income: Income)
+
+    //Function that will query the total amount of income
+    @Query("SELECT SUM(incomeAmount) FROM IncomeListTable")
+    fun getTotalIncome(): Double
 }

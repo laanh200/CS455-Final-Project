@@ -21,4 +21,11 @@ class ExpenseRepository(private val expenseDao: ExpenseDao) {
     suspend fun deleteExpense(expense: Expense){
         expenseDao.deleteExpense(expense)
     }
+
+    //Function that will call the getTotalExpense function query
+    //Return the value of the query
+    fun getTotalExpense(): Double {
+        return expenseDao.getTotalExpense()
+    }
+
 }

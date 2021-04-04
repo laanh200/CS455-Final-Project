@@ -14,6 +14,7 @@ import com.android.momoney101.viewmodel.IncomeViewModel
 
 class NewIncome : AppCompatActivity() {
 
+    //Create late init variables for linking with xml file
     private lateinit var saveBtn :Button
     private lateinit var incomeAmount: EditText
     private lateinit var incomeDate: DatePicker
@@ -59,7 +60,7 @@ class NewIncome : AppCompatActivity() {
         val selectedDate:String =  (incomeDate.dayOfMonth).toString()+ '/' + (incomeDate.month + 1).toString()+ '/' +(incomeDate.year).toString()
 
         //the income amount
-        val incomeValue = convertEditToDouble(incomeAmount)
+        val incomeValue = convertEditToDouble()
 
         //Check if amount is not equal to zero
         if (!(incomeValue.equals(0.0))){
@@ -81,10 +82,10 @@ class NewIncome : AppCompatActivity() {
         Check if the string is empty
         convert the string into double and return the double
      */
-    private fun convertEditToDouble(incomeAmount: EditText): Double {
+    private fun convertEditToDouble(): Double {
 
         //convert to string
-        var income: String = incomeAmount.getText().toString()
+        var income: String = incomeAmount.text.toString()
         //create a default variable
         var incomeInDouble = 0.0
 
