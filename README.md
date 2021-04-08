@@ -42,6 +42,15 @@
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
 ## Credits
+This application was created from the following packages:
+- [Markdownify](https://github.com/amitmerchant1990/electron-markdownify) – Readme file reference
+-	[Room Database](https://developer.android.com/reference/android/arch/persistence/room/RoomDatabase)
+-	[Androidx Lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle)
+-	[Kotlin Coroutines](https://developer.android.com/kotlin/coroutines)
+-	[Reference Room Database video](https://www.youtube.com/watch?v=lwAvI3WDXBY)
+-	[Reference Navigation Drawer video](https://www.youtube.com/watch?v=do4vb0MdLFY)
 
 ## Thanks
+Dr. T's hamster.
+
 ![cover1](https://user-images.githubusercontent.com/79466152/114063330-bae2cd00-9855-11eb-93b0-993b6e1c492e.png)
