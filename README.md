@@ -15,12 +15,40 @@
 </p>
 
 ## Key Features
+Track your Expense and Income
+
+![create new income gif](https://user-images.githubusercontent.com/79466152/114067151-b7514500-9859-11eb-968d-a2ab79f0e78a.gif)
+![Create new expense gif](https://user-images.githubusercontent.com/79466152/114067157-bae4cc00-9859-11eb-801a-c3e89254208f.gif)
+
+  
+Display the list of your current list of expenses and income.
+
+![expense list gif](https://user-images.githubusercontent.com/79466152/114067305-ea93d400-9859-11eb-914d-c8ce185507a9.gif)
+![income list gif](https://user-images.githubusercontent.com/79466152/114067312-ebc50100-9859-11eb-9966-f6e5bb7e1529.gif)
+
+  
+Deleting the item off the lists.
+
+![delete expense items gif](https://user-images.githubusercontent.com/79466152/114067375-fd0e0d80-9859-11eb-945a-d961ba224fc4.gif)
+![delete income items gif](https://user-images.githubusercontent.com/79466152/114067383-fe3f3a80-9859-11eb-8f12-e0428240000b.gif)
+
 
 ## Installation
+
+You can install Mo Money 101 by downloading the APK from GitHub and install it.
+
+*This will require Android Studio already installed on your machine.
 
 ## User manual
 
 ## Architecture
+
+This application is based on the MVC (Model View Controller) paradigm.
+
+![Expense VCM diagram](https://user-images.githubusercontent.com/79466152/114067565-3181c980-985a-11eb-84a9-92cef9b7ad20.jpg)
+
+![Income VCM diagram](https://user-images.githubusercontent.com/79466152/114067595-3a729b00-985a-11eb-9c4f-2775f5b946b0.jpg)
+
 
 ## Planned features
 *	Landscape layout.
