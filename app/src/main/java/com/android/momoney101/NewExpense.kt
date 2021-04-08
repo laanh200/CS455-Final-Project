@@ -99,7 +99,7 @@ class NewExpense : AppCompatActivity() {
         val expenseDollar = convertEditToDouble()
 
         //If Check if the title name is empty or the amount is empty or not
-        if (expenseTitle.isNotBlank() || expenseDollar.equals(0.0)){
+        if ((!expenseTitle.isNullOrBlank()) || (!expenseDollar.equals(0.0))){
             //create expense object
             val expense = Expense(0, selectedDate,expenseTitle, expenseType, expenseDollar)
             //Add expense item to database
@@ -110,7 +110,6 @@ class NewExpense : AppCompatActivity() {
             //Toast to let user know that item is not added
             Toast.makeText(this,"Failure in adding new expense. Item need a name or a cost!", Toast.LENGTH_SHORT).show()
         }
-
     }
 
     /*
@@ -153,6 +152,7 @@ class NewExpense : AppCompatActivity() {
         if(name.isNullOrBlank()){
             //if yes, then tell them to enter name
             Toast.makeText(this, "Enter expense name.",Toast.LENGTH_SHORT).show()
+            name = "";
         }
         //return expense name
         return name

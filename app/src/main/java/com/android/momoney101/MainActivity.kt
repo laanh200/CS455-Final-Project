@@ -67,7 +67,9 @@ class MainActivity : AppCompatActivity() {
         //Link the navigation view
         navView = findViewById(R.id.nav_view)
 
+        //Add a listener on the menu item being selected by user
         navView.setNavigationItemSelectedListener {
+            //itemId is based on the menu item in nav_view_drawer_menu.xml that is in the res/menu directory
             when(it.itemId){
                 R.id.Expense_list ->{
                     val intent_ExpenseList = Intent(this,ExpenseList::class.java)

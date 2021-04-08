@@ -32,9 +32,9 @@ class IncomeListAdapter:RecyclerView.Adapter<IncomeListAdapter.MyViewHolder>() {
         val currentItem = incomeList[position]
 
         //Assign the the current item data to the text view to display
-        holder.itemView.findViewById<TextView>(R.id.income_item_id).setText(currentItem.id.toString())
-        holder.itemView.findViewById<TextView>(R.id.income_item_amount).setText(currentItem.incomeAmount.toString())
-        holder.itemView.findViewById<TextView>(R.id.income_item_date).setText(currentItem.incomeDate)
+        holder.itemView.findViewById<TextView>(R.id.income_item_id).text = currentItem.id.toString()
+        holder.itemView.findViewById<TextView>(R.id.income_item_amount).text = currentItem.incomeAmount.toString()
+        holder.itemView.findViewById<TextView>(R.id.income_item_date).text = currentItem.incomeDate
     }
 
     //Function to set the income parameter to the current income list

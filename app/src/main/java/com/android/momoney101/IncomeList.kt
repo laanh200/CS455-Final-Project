@@ -40,7 +40,7 @@ class IncomeList : AppCompatActivity() {
         recyclerView = findViewById(R.id.income_recyclerview)
 
         //Link the textview variable with the xml textview in activity_expense_list.xml
-        current_total_income = findViewById((R.id.current_total_income))
+        current_total_income = findViewById(R.id.current_total_income)
 
         val adapter = IncomeListAdapter()
 

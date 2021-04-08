@@ -56,8 +56,8 @@ class NewIncome : AppCompatActivity() {
        amount is in double
     */
     private fun saveToDatabase(){
-        //date picker
-        val selectedDate:String =  (incomeDate.dayOfMonth).toString()+ '/' + (incomeDate.month + 1).toString()+ '/' +(incomeDate.year).toString()
+        //date picker, convert the date picker to string
+        val selectedDate:String = (incomeDate.dayOfMonth).toString()+ '/' + (incomeDate.month + 1).toString()+ '/' +(incomeDate.year).toString()
 
         //the income amount
         val incomeValue = convertEditToDouble()

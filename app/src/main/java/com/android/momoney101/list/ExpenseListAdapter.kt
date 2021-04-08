@@ -36,11 +36,11 @@ class ExpenseListAdapter:RecyclerView.Adapter<ExpenseListAdapter.MyViewHolder>()
         val currentItem = expenseList[position]
 
         //Set the list item to be database item
-        holder.itemView.findViewById<TextView>(R.id.expense_item_id).setText(currentItem.id.toString())
-        holder.itemView.findViewById<TextView>(R.id.expense_item_amount).setText(currentItem.expenseAmount.toString())
-        holder.itemView.findViewById<TextView>(R.id.expense_item_date).setText(currentItem.expenseDate)
-        holder.itemView.findViewById<TextView>(R.id.expense_item_name).setText(currentItem.expenseName)
-        holder.itemView.findViewById<TextView>(R.id.expense_item_type).setText(currentItem.expenseType)
+        holder.itemView.findViewById<TextView>(R.id.expense_item_id).text = currentItem.id.toString()
+        holder.itemView.findViewById<TextView>(R.id.expense_item_amount).text = currentItem.expenseAmount.toString()
+        holder.itemView.findViewById<TextView>(R.id.expense_item_date).text = currentItem.expenseDate
+        holder.itemView.findViewById<TextView>(R.id.expense_item_name).text = currentItem.expenseName
+        holder.itemView.findViewById<TextView>(R.id.expense_item_type).text = currentItem.expenseType
     }
 
     //Function to set the income parameter to the current expense list

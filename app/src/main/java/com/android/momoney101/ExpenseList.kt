@@ -42,7 +42,7 @@ class ExpenseList : AppCompatActivity() {
         recyclerView = findViewById(R.id.expense_recyclerview)
 
         //Link the textview variable with the xml textview in activity_expense_list.xml
-        current_total_expense=findViewById(R.id.current_total_expense)
+        current_total_expense = findViewById(R.id.current_total_expense)
 
         val adapter = ExpenseListAdapter()
 
