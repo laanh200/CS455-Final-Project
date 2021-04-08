@@ -40,6 +40,25 @@ You can install Mo Money 101 by downloading the APK from GitHub and install it.
 *This will require Android Studio already installed on your machine.
 
 ## User manual
+To add a new expense or income item
+* Select the according button on the landing screen.
+
+![Add new expense button](https://user-images.githubusercontent.com/79466152/114067853-83c2ea80-985a-11eb-939e-099a38507e65.png)![Add new income button](https://user-images.githubusercontent.com/79466152/114067864-858cae00-985a-11eb-9ee6-7db2996d61e0.png)
+
+
+* New Expense or Income – Enter all the required fields and select save.
+
+![new expense](https://user-images.githubusercontent.com/79466152/114068109-c389d200-985a-11eb-88d1-ed6df7bb077f.PNG)![new income](https://user-images.githubusercontent.com/79466152/114068113-c5539580-985a-11eb-957f-169021fa2028.PNG)
+
+To access the current list of expenses or income.
+* Select the navigation drawer icon on the landing screen.
+
+![Click on navigation drawer menu](https://user-images.githubusercontent.com/79466152/114068227-ed42f900-985a-11eb-8481-10e284aac1b9.png)![nav view - expense list](https://user-images.githubusercontent.com/79466152/114068246-f3d17080-985a-11eb-9c86-4ce5df6bb856.png)![nav view - income](https://user-images.githubusercontent.com/79466152/114068256-f633ca80-985a-11eb-8313-5c4fa55ec26f.png)
+
+To delete an item from the list. Swipe left or right.
+
+![swipe to delete](https://user-images.githubusercontent.com/79466152/114068445-29765980-985b-11eb-9644-772c30e0615f.png)
+
 
 ## Architecture
 
@@ -60,7 +79,8 @@ This application is based on the MVC (Model View Controller) paradigm.
 *	Improve backend code for Database access. Update the date field inputs.
 *	Add more types into the Expense item type.
 *	Add a name column to the income list.
-*	The ability to sort list item by amount, date, name, type.
+*	The ability to sort list item by amount, date, name, type.![new income]
+
 *	Push notification to enter daily expenses and income.
 *	The ability to export the list into CSV. An option on the list view.
 *	The ability to backup current data to the cloud.
@@ -69,6 +89,7 @@ This application is based on the MVC (Model View Controller) paradigm.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+
 ## Credits
 This application was created from the following packages:
 - [Markdownify](https://github.com/amitmerchant1990/electron-markdownify) – Readme file reference
