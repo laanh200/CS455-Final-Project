@@ -73,7 +73,7 @@ This application is based on the MVC (Model View Controller) paradigm.
 *	Landscape layout.
 *	The ability to modify an item in the Expense and Income list. Add Fragment UI for better reusability.
 *	The ability to restore deleted Item
-*	Improve display layout for Expense and Income List.
+*	Improve display layout for Expense and Income List. - Done
 *	Display the current total expense and income in Main Activity View.
 *	Run advertisement at the bottom.
 *	Improve backend code for Database access. Update the date field inputs.
@@ -84,7 +84,7 @@ This application is based on the MVC (Model View Controller) paradigm.
 *	Push notification to enter daily expenses and income.
 *	The ability to export the list into CSV. An option on the list view.
 *	The ability to backup current data to the cloud.
-*	Toggle for dark theme layout.
+*	Toggle for dark theme layout. - Done
 *	Create pie charts to show the spending habits. A menu option on the navigation view.
 
 ## License
