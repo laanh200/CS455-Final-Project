@@ -70,7 +70,7 @@ This application is based on the MVC (Model View Controller) paradigm.
 
 
 ## Planned features
-*	Landscape layout.
+*	Landscape layout. - Done
 *	The ability to modify an item in the Expense and Income list. Add Fragment UI for better reusability.
 *	The ability to restore deleted Item
 *	Improve display layout for Expense and Income List. - Done
