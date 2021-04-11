@@ -15,7 +15,7 @@
 </p>
 
 ## Key Features
-Track your Expense and Income
+Track your Expense and Income.
 
 ![create new income gif](https://user-images.githubusercontent.com/79466152/114067151-b7514500-9859-11eb-968d-a2ab79f0e78a.gif)
 ![Create new expense gif](https://user-images.githubusercontent.com/79466152/114067157-bae4cc00-9859-11eb-801a-c3e89254208f.gif)
@@ -31,6 +31,10 @@ Deleting the item off the lists.
 
 ![delete expense items gif](https://user-images.githubusercontent.com/79466152/114067375-fd0e0d80-9859-11eb-945a-d961ba224fc4.gif)
 ![delete income items gif](https://user-images.githubusercontent.com/79466152/114067383-fe3f3a80-9859-11eb-8f12-e0428240000b.gif)
+
+Dark mode.
+
+![dark mode gif](https://user-images.githubusercontent.com/79466152/114291715-c812de00-9a46-11eb-9a6a-76b9f0157bec.gif)
 
 
 ## Installation
@@ -57,7 +61,13 @@ To access the current list of expenses or income.
 
 To delete an item from the list. Swipe left or right.
 
-![swipe to delete](https://user-images.githubusercontent.com/79466152/114068445-29765980-985b-11eb-9644-772c30e0615f.png)
+![swipe to delete](https://user-images.githubusercontent.com/79466152/114291754-1627e180-9a47-11eb-898e-4146c6332bde.png)
+
+
+To turn on dark mode. 
+* The switch in the navigation drawer. Turn on the switch.
+
+![dark mode](https://user-images.githubusercontent.com/79466152/114291737-fa244000-9a46-11eb-97b1-0376864b9cc0.PNG)
 
 
 ## Architecture
