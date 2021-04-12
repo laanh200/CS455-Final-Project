@@ -9,6 +9,7 @@
   <a href="#user-manual">User manual</a> •
   <a href="#troubleshooting-tips">Troubleshooting tips</a> •
   <a href="#bug-list">Bug list</a> •
+  <a href="#manifest">Manifest</a> •
   <a href="#architecture">Architecture</a> •
   <a href="#planned-features">Planned features</a> •
   <a href="#license">License</a> •
@@ -81,6 +82,10 @@ Restart the application.
 ## Bug list
 
 The expense and income total can take sometime to update due to main thread query.
+
+## Manifest
+
+![Mo Money 101 Manifest](https://user-images.githubusercontent.com/79466152/114445715-a2442100-9b8d-11eb-9ff5-480448febdee.png)
 
 
 ## Architecture
