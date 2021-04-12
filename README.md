@@ -7,11 +7,14 @@
   <a href="#key-features">Key features</a> •
   <a href="#installation">Installation</a> •
   <a href="#user-manual">User manual</a> •
+  <a href="#troubleshooting-tips">Troubleshooting tips</a> •
+  <a href="#bug-list">Bug list</a> •
   <a href="#architecture">Architecture</a> •
   <a href="#planned-features">Planned features</a> •
   <a href="#license">License</a> •
   <a href="#credits">Credits</a> •
   <a href="#thanks">Thanks</a> •
+  <a href="#contact-info">Contact Info</a>
 </p>
 
 ## Key Features
@@ -71,6 +74,14 @@ To turn on dark mode.
 ![dark mode](https://user-images.githubusercontent.com/79466152/114291737-fa244000-9a46-11eb-97b1-0376864b9cc0.PNG)
 ![dark mode show](https://user-images.githubusercontent.com/79466152/114327734-78401f80-9af7-11eb-9932-daff3d5d49ba.PNG)
 
+## Troubleshooting tips
+
+Restart the application.
+
+## Bug list
+
+The expense and income total can take sometime to update due to main thread query.
+
 
 ## Architecture
 
@@ -99,7 +110,7 @@ This application is based on the MVC (Model View Controller) paradigm.
 *	Create pie charts to show the spending habits. A menu option on the navigation view.
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+All rights are reserved to [@laanh200]( https://github.com/laanh200). Nobody else can use, copy, share, or change it. The only rights granted are the rights to look at it and fork the project to look at it in their own account. 
 
 ## Credits
 This application was created from the following packages:
@@ -112,5 +123,8 @@ This application was created from the following packages:
 
 ## Thanks
 Dr. T's hamster.
+
+## Contact Info
+>GitHub [@laanh200]( https://github.com/laanh200)
 
 ![cover1](https://user-images.githubusercontent.com/79466152/114063330-bae2cd00-9855-11eb-93b0-993b6e1c492e.png)
