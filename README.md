@@ -62,12 +62,14 @@ To access the current list of expenses or income.
 To delete an item from the list. Swipe left or right.
 
 ![swipe to delete](https://user-images.githubusercontent.com/79466152/114291754-1627e180-9a47-11eb-898e-4146c6332bde.png)
+![delete item](https://user-images.githubusercontent.com/79466152/114327670-3adb9200-9af7-11eb-9f5d-868459e42564.PNG)
 
 
 To turn on dark mode. 
 * The switch in the navigation drawer. Turn on the switch.
 
 ![dark mode](https://user-images.githubusercontent.com/79466152/114291737-fa244000-9a46-11eb-97b1-0376864b9cc0.PNG)
+![dark mode show](https://user-images.githubusercontent.com/79466152/114327734-78401f80-9af7-11eb-9932-daff3d5d49ba.PNG)
 
 
 ## Architecture
