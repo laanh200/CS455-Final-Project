@@ -84,15 +84,14 @@ This application is based on the MVC (Model View Controller) paradigm.
 ## Planned features
 *	Landscape layout. - Done
 *	The ability to modify an item in the Expense and Income list. Add Fragment UI for better reusability.
-*	The ability to restore deleted Item
+*	The ability to restore deleted item.
 *	Improve display layout for Expense and Income List. - Done
-*	Display the current total expense and income in Main Activity View.
+*	Display the current total expense and income in Main Activity view.
 *	Run advertisement at the bottom.
 *	Improve backend code for Database access. Update the date field inputs.
 *	Add more types into the Expense item type.
-*	Add a name column to the income list.
-*	The ability to sort list item by amount, date, name, type.![new income]
-
+*	Add a name column to the Income list.
+*	The ability to sort list item by amount, date, name, type.
 *	Push notification to enter daily expenses and income.
 *	The ability to export the list into CSV. An option on the list view.
 *	The ability to backup current data to the cloud.
