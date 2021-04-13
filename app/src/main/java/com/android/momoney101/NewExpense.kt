@@ -1,7 +1,6 @@
 package com.android.momoney101
 
 
-import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils

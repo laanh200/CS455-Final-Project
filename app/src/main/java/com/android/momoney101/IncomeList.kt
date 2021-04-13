@@ -2,13 +2,17 @@ package com.android.momoney101
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Update
 import com.android.momoney101.viewmodel.IncomeViewModel
 import com.android.momoney101.list.IncomeListAdapter
 import com.android.momoney101.model.Income
@@ -78,28 +82,70 @@ class IncomeList : AppCompatActivity() {
             //When item get swiped
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
-                //Create variable and store the viewholder position of swiped item
-                val position = viewHolder.adapterPosition
-
-                //Create an income variable and call the get Income at position by using position as parameter
-                val currentTarget: Income = adapter.getIncomeAtPosition(position)
-
-                //Call function to delete the current target income item from database
-                mIncomeViewModel.deleteIncome(currentTarget)
-
-                //Toast to let user know that item is being deleted
-                Toast.makeText(applicationContext, "Deleting income ID:" + currentTarget.id, Toast.LENGTH_SHORT).show()
-
-                //Let the adapter know that the dataset has been changed
-                adapter.notifyDataSetChanged();
-
-                //Let the adapter know that the income item at the swiped position got deleted
-                adapter.notifyItemRemoved(position)
-
-                //Update the list total after deletion
+                //Create an alert dialog when the user swipe on an item
+                val builder = AlertDialog.Builder(this@IncomeList)
+                builder.setTitle("Delete income?")
+                builder.setMessage("Are you sure you want to delete the current income item?").setCancelable(false)
+                //If they select the yes option
+                builder.setPositiveButton("Yes"){ _, _ ->
+                    //Call function to delete the swiped item
+                    deleteItem(viewHolder,adapter)
+                }
+                //If the select the no option
+                builder.setNegativeButton("No"){ _, _ ->
+                    //reload the adapter
+                    adapter.notifyDataSetChanged();
+                }
+                //Build the alert dialog and display
+                builder.create().show()
             }
             //Attach the item touch helper to the recycler view
         }).attachToRecyclerView(recyclerView)
+    }
+
+    //This function is used to call to delete the income item in the incomeList database
+    private fun deleteItem(viewHolder: RecyclerView.ViewHolder, adapter: IncomeListAdapter){
+        //Create variable and store the viewholder position of swiped item
+        val position = viewHolder.adapterPosition
+
+        //Create an income variable and call the get Income at position by using position as parameter
+        val currentTarget: Income = adapter.getIncomeAtPosition(position)
+
+        //Call function to delete the current target income item from database
+        mIncomeViewModel.deleteIncome(currentTarget)
+
+        //Toast to let user know that item is being deleted
+        Toast.makeText(this, "Deleting income ID:" + currentTarget.id, Toast.LENGTH_SHORT).show()
+
+        //Let the adapter know that the dataset has been changed
+     //   adapter.notifyDataSetChanged();
+
+        //Let the adapter know that the income item at the swiped position got deleted
+        adapter.notifyItemRemoved(position)
+
+        //Update the list total after deletion
+        getAndDisplayTotalIncome()
+    }
+
+    //This function is used to call to delete all the income item in the incomeList database
+    private fun deleteAllItems(){
+
+        //Confirm with the user
+        val builder = AlertDialog.Builder(this@IncomeList)
+        builder.setTitle("Delete all income?")
+        builder.setMessage("Are you sure you want to deletes all the current income items?").setCancelable(false)
+        //If they select the yes option
+        builder.setPositiveButton("Yes"){ _, _ ->
+            //Call function to delete the swiped item
+            mIncomeViewModel.deleteAllIncomes()
+            Toast.makeText(this,"All expense items are now deleted.", Toast.LENGTH_SHORT)
+            getAndDisplayTotalIncome()
+        }
+        //If the select the no option
+        builder.setNegativeButton("No"){ _, _ ->
+        }
+        //create and show the dialog alert
+        builder.create().show()
     }
 
     /*This function to being call by the oncreate function
@@ -116,5 +162,26 @@ class IncomeList : AppCompatActivity() {
 
         //Update the textview
         current_total_income.setText("Current Total: $$totalIncome")
+    }
+
+    //Adding the list menu for deleting all the items
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        //Create inflater for menu inflatoer
+        val inflater = menuInflater
+        //Inflate the menu
+        inflater.inflate(R.menu.list_menu,menu)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    //Function to check when user select on the menu item
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.delete_all_option ->{
+                //Call function to delete all income item
+                deleteAllItems()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

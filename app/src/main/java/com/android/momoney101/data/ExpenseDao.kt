@@ -21,6 +21,10 @@ interface ExpenseDao {
     @Delete
     suspend fun deleteExpense(expense: Expense)
 
+    //Query to delete all the expense items from table
+    @Query("DELETE from ExpenseListTable")
+    suspend fun deleteAllExpenses()
+
     //Function that will query the total amount of expense
     @Query("SELECT SUM(expenseAmount) FROM ExpenseListTable")
     fun getTotalExpense():Double

@@ -5,10 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.android.momoney101.ExpenseList
 import com.android.momoney101.R
 import com.android.momoney101.model.Expense
-
 
 
 class ExpenseListAdapter:RecyclerView.Adapter<ExpenseListAdapter.MyViewHolder>() {
@@ -18,7 +16,6 @@ class ExpenseListAdapter:RecyclerView.Adapter<ExpenseListAdapter.MyViewHolder>()
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):MyViewHolder {
         //Create the view in the file activity_income_list
@@ -37,7 +34,7 @@ class ExpenseListAdapter:RecyclerView.Adapter<ExpenseListAdapter.MyViewHolder>()
 
         //Set the list item to be database item
         holder.itemView.findViewById<TextView>(R.id.expense_item_id).text = currentItem.id.toString()
-        holder.itemView.findViewById<TextView>(R.id.expense_item_amount).text = currentItem.expenseAmount.toString()
+        holder.itemView.findViewById<TextView>(R.id.expense_item_amount).text = "$" + currentItem.expenseAmount.toString()
         holder.itemView.findViewById<TextView>(R.id.expense_item_date).text = currentItem.expenseDate
         holder.itemView.findViewById<TextView>(R.id.expense_item_name).text = currentItem.expenseName
         holder.itemView.findViewById<TextView>(R.id.expense_item_type).text = currentItem.expenseType

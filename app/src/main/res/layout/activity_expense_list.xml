@@ -10,9 +10,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/expense_recyclerview"
-        android:layout_width="356dp"
-        android:layout_height="628dp"
-
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/current_total_expense"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +21,6 @@
         android:id="@+id/current_total_expense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#F0E68C"
         android:text="@string/current_total_expense"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

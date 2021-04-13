@@ -21,6 +21,10 @@ interface IncomeDao {
     @Delete
     suspend fun deleteIncome(income: Income)
 
+    //Query to delete all the income items from the income list
+    @Query("DELETE from IncomeListTable")
+    suspend fun deleteAllIncomes()
+
     //Function that will query the total amount of income
     @Query("SELECT SUM(incomeAmount) FROM IncomeListTable")
     fun getTotalIncome(): Double

@@ -1,13 +1,14 @@
 package com.android.momoney101
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.TextView
-
+import android.widget.Switch
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.drawerlayout.widget.DrawerLayout
 
 import com.google.android.material.navigation.NavigationView
@@ -28,6 +29,12 @@ class MainActivity : AppCompatActivity() {
 
     //Drawer Layout
     private lateinit var drawer:DrawerLayout
+
+    //Drawer menu item
+    private lateinit var menuItem: MenuItem
+
+    //Switch in the menu item
+    private lateinit var darkMode: Switch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,6 +89,43 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+        //Link the switch in the navigation menu and the variable menu item
+        menuItem = navView.menu.findItem(R.id.dark_mode_switch_item)
+
+        //Link with the switch that is inside the menu item
+        darkMode = menuItem.actionView.findViewById(R.id.dark_mode_switch)
+
+        //Create a share preference variable to save the state of the switch
+        val sharedPreferences: SharedPreferences = getSharedPreferences("value", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        //First when the switch is off then share preference value is false
+        darkMode.isChecked = (sharedPreferences.getBoolean("value",false))
+
+        if(darkMode.isChecked){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+        //Assign change listener to the switch
+        darkMode.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                //If the switch turn on then
+                true -> {
+                    //Change the theme to dark
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    //Change the value of the share preference variable to true
+                    editor.putBoolean("value",true)
+                }
+                //If the switch turn off then
+                false -> {
+                    //Change the theme to regular
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    //Change the value of the share preference variable to false
+                    editor.putBoolean("value",false)
+                }
+            }
+            editor.apply()
+        }
     }
 
     /*
@@ -89,11 +133,10 @@ class MainActivity : AppCompatActivity() {
        Linking with which item in the menu is being selected in the navigation drawer
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //Return true if the menu item is being selected
         if(toggle.onOptionsItemSelected(item)){
             return true
         }
         return super.onOptionsItemSelected(item)
     }
-
-
 }

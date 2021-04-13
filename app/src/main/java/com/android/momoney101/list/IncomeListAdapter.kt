@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.momoney101.R
-
 import com.android.momoney101.model.Income
 
 class IncomeListAdapter:RecyclerView.Adapter<IncomeListAdapter.MyViewHolder>() {
@@ -15,7 +14,6 @@ class IncomeListAdapter:RecyclerView.Adapter<IncomeListAdapter.MyViewHolder>() {
     private var incomeList = emptyList<Income>()
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         //Create the view in the file activity_income_list
@@ -33,7 +31,7 @@ class IncomeListAdapter:RecyclerView.Adapter<IncomeListAdapter.MyViewHolder>() {
 
         //Assign the the current item data to the text view to display
         holder.itemView.findViewById<TextView>(R.id.income_item_id).text = currentItem.id.toString()
-        holder.itemView.findViewById<TextView>(R.id.income_item_amount).text = currentItem.incomeAmount.toString()
+        holder.itemView.findViewById<TextView>(R.id.income_item_amount).text = "$" + currentItem.incomeAmount.toString()
         holder.itemView.findViewById<TextView>(R.id.income_item_date).text = currentItem.incomeDate
     }
 

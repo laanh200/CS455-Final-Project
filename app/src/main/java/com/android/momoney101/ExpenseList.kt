@@ -1,14 +1,15 @@
 package com.android.momoney101
 
-
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,6 +38,8 @@ class ExpenseList : AppCompatActivity() {
 
         //Back to main activity
         actionBar.setDisplayHomeAsUpEnabled(true)
+
+
 
         //Link the recycler view variable with the expense_recyclerview item in activity_expense_list.xml
         recyclerView = findViewById(R.id.expense_recyclerview)
@@ -72,7 +75,7 @@ class ExpenseList : AppCompatActivity() {
             Swipe left or right on the item will delete the item off the recycler
             delete from database
          */
-        ItemTouchHelper( object :ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
             //Move doesn't matter
             override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
                 return false
@@ -80,32 +83,71 @@ class ExpenseList : AppCompatActivity() {
             //When item get swiped
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
-                //Create variable and store the viewholder position of swiped item
-                val position = viewHolder.adapterPosition
+                //Create an alert dialog when the user swipe on an item
+                val builder = AlertDialog.Builder(this@ExpenseList)
+                builder.setTitle("Delete expense?")
+                builder.setMessage("Are you sure you want to delete the current expense item?").setCancelable(false)
+                //If they select the yes option
+                builder.setPositiveButton("Yes"){ _, _ ->
+                    //Call function to delete the swiped item
+                    deleteItem(viewHolder,adapter)
+                }
+                //If the select the no option
+                builder.setNegativeButton("No"){ _, _ ->
+                    adapter.notifyDataSetChanged();
+                }
+                //create and show the dialog alert
+                builder.create().show()
 
-                //Create an expense variable and call the get expense at position by using position as parameter
-                val currentTarget: Expense = adapter.getExpenseAtPosition(position)
-
-                //Call function to delete the current target expense item from database
-                mExpenseViewModel.deleteExpense(currentTarget)
-
-                //Toast to let user know that item is being deleted
-                Toast.makeText(applicationContext, "Deleting expense ID:" + currentTarget.id, Toast.LENGTH_SHORT).show()
-
-                //Let the adapter know that the dataset has been changed
-                adapter.notifyDataSetChanged();
-
-                //Let the adapter know that the income item at the swiped position got deleted
-                adapter.notifyItemRemoved(position)
-
-                //Get the new total after the deleting the item
-                getAndDisplayTotalExpense()
             }
             //Attach the item touch helper to the recycler view
         }).attachToRecyclerView(recyclerView)
-
     }
 
+    //This function is used to call to delete the expense item in the expenseList database
+    private fun deleteItem(viewHolder: RecyclerView.ViewHolder, adapter: ExpenseListAdapter){
+        //Create variable and store the viewholder position of swiped item
+        val position = viewHolder.adapterPosition
+
+        //Create an expense variable and call the get expense at position by using position as parameter
+        val currentTarget: Expense = adapter.getExpenseAtPosition(position)
+
+        //Call function to delete the current target expense item from database
+        mExpenseViewModel.deleteExpense(currentTarget)
+
+        //Toast to let user know that item is being deleted
+        Toast.makeText(this, "Deleting expense ID:" + currentTarget.id, Toast.LENGTH_SHORT).show()
+
+        //Let the adapter know that the dataset has been changed
+        //adapter.notifyDataSetChanged();
+
+        //Let the adapter know that the income item at the swiped position got deleted
+        adapter.notifyItemRemoved(position)
+
+        //Get the new total after the deleting the item
+        getAndDisplayTotalExpense()
+    }
+
+    //This function is used to call to delete all the expense items in the expenseList database
+    private fun deleteAllItems(){
+
+        //Ask to confirm with the user
+        val builder = AlertDialog.Builder(this@ExpenseList)
+        builder.setTitle("Delete all expenses?")
+        builder.setMessage("Are you sure you want to deletes all the current expense items?").setCancelable(false)
+        //If they select the yes option
+        builder.setPositiveButton("Yes"){ _, _ ->
+            //Call function to delete the swiped item
+           mExpenseViewModel.deleteAllExpenses()
+            Toast.makeText(this,"All expense items are now deleted.", Toast.LENGTH_SHORT)
+            getAndDisplayTotalExpense()
+        }
+        //If the select the no option
+        builder.setNegativeButton("No"){ _, _ ->
+        }
+        //create and show the dialog alert
+        builder.create().show()
+    }
     /*This function to being call by the oncreate function
        To call the query in the Expense DAO and return the total expense of all the item
        Display the total expense in the textview
@@ -120,5 +162,26 @@ class ExpenseList : AppCompatActivity() {
 
         //Update the textview
         current_total_expense.setText("Current Total: $$totalExpense")
+    }
+
+    //Adding the list menu for deleting all the items
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        //Create inflater for menu inflatoer
+        val inflater = menuInflater
+        //Inflate the menu
+        inflater.inflate(R.menu.list_menu,menu)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    //Function to check when user select on the menu item
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.delete_all_option ->{
+                //Call function to delete all expenses items
+                deleteAllItems()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

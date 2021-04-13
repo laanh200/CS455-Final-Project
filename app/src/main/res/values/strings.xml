@@ -43,4 +43,7 @@
     <string name="row_income_date">Date</string>
     <string name="row_income_amount">Amount</string>
 
+    <string name="dark_mode_switch">Dark Mode</string>
+
+    <string name="delete_all_option">Delete All</string>
 </resources>

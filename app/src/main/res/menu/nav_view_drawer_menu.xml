@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/Expense_list"
-        android:title="Expense list"></item>
-    <item
-        android:id="@+id/Income_list"
-        android:title="Income list"></item>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single"
+        android:id="@+id/list_item_menu">
+        <item
+            android:id="@+id/Expense_list"
+            android:icon="@drawable/ic_baseline_view_list_24"
+            android:title="Expense List"></item>
+        <item
+            android:id="@+id/Income_list"
+            android:icon="@drawable/ic_baseline_list_24"
+            android:title="Income List"></item>
+    </group>
 
+    <item android:title="Setting">
+        <menu android:id="@+id/setting_item_menu">
+            <item
+                android:id="@+id/dark_mode_switch_item"
+                android:title="@string/dark_mode_switch"
+                android:icon="@drawable/ic_baseline_dark_mode_24"
+                app:actionLayout="@layout/switch_menu"
+               />
+        </menu>
+    </item>
 </menu>

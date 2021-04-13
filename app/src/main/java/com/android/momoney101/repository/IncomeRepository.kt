@@ -22,6 +22,12 @@ class IncomeRepository(private val incomeDao: IncomeDao) {
         incomeDao.deleteIncome(income)
     }
 
+    //Function that will call the incomeDao's function deleteAllIncomes
+    //Delete all income items
+    suspend fun deleteAllIncomes(){
+        incomeDao.deleteAllIncomes()
+    }
+
     //Function that will call the getTotalIncome function query
     //Return the value of the query
     fun getTotalIncome():Double{

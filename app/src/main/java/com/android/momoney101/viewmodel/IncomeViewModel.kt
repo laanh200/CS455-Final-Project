@@ -41,12 +41,20 @@ class IncomeViewModel(application: Application):AndroidViewModel(application) {
         }
     }
 
-    //This function is use to delete expense item by calling the deleteincome function in income repository
+    //This function is use to delete expense item by calling the deleteIncome function in income repository
     fun deleteIncome(income: Income){
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteIncome(income)
         }
     }
+
+    //This function is use to delete expense item by calling the deleteIncome function in income repository
+    fun deleteAllIncomes(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllIncomes()
+        }
+    }
+
     //This function is use to call the getTotalIncome function in the income repository
     // and return the value to the activity
     fun getTotalIncome():Double{

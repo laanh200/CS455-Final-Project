@@ -36,7 +36,7 @@ class ExpenseViewModel (application: Application): AndroidViewModel(application)
 
     }
 
-    //This function is use add new expense by calling the addexpense function in expense repository
+    //This function is use add new expense by calling the addExpense function in expense repository
     fun addExpense(expense: Expense){
         //Run this code in the back ground thread
         viewModelScope.launch(Dispatchers.IO) {
@@ -44,11 +44,18 @@ class ExpenseViewModel (application: Application): AndroidViewModel(application)
         }
     }
 
-    //This function is use delete expense by calling the deleteexpense function in expense repository
+    //This function is use to delete expense by calling the deleteExpense function in expense repository
     fun deleteExpense(expense: Expense){
         //Run this code in the back ground thread
         viewModelScope.launch(Dispatchers.IO) {
-        repository.deleteExpense(expense)}
+            repository.deleteExpense(expense)}
+    }
+
+    //This function is use to delete all the current expenses by calling the deleteAllExpenses function in expense repository
+    fun deleteAllExpenses(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllExpenses()
+        }
     }
 
     //This function is use to call the getTotalExpense function in the expense repository
@@ -56,6 +63,7 @@ class ExpenseViewModel (application: Application): AndroidViewModel(application)
     fun getTotalExpense():Double{
         return repository.getTotalExpense()
     }
+
 
 }
 
