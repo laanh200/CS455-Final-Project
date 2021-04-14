@@ -1,9 +1,11 @@
 package com.android.momoney101
 
+import android.graphics.Canvas
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -87,18 +89,41 @@ class IncomeList : AppCompatActivity() {
                 builder.setTitle("Delete income?")
                 builder.setMessage("Are you sure you want to delete the current income item?").setCancelable(false)
                 //If they select the yes option
-                builder.setPositiveButton("Yes"){ _, _ ->
+                builder.setPositiveButton("Yes") { _, _ ->
                     //Call function to delete the swiped item
-                    deleteItem(viewHolder,adapter)
+                    deleteItem(viewHolder, adapter)
                 }
                 //If the select the no option
-                builder.setNegativeButton("No"){ _, _ ->
+                builder.setNegativeButton("No") { _, _ ->
                     //reload the adapter
                     adapter.notifyDataSetChanged();
+                    //Get the target item being swiped
+                    var itemTarget: View = viewHolder.itemView
+                    //When they are swiped but answered no then turn back the background
+                    itemTarget.setBackgroundColor(0)
+                    itemTarget.setBackgroundResource(R.drawable.layout_border)
                 }
                 //Build the alert dialog and display
                 builder.create().show()
             }
+                override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
+                    //Create a value that hold the original position of item
+                    val originalPosition:Float = 0.0F
+                    //Get the target item
+                    var itemTarget: View = viewHolder.itemView
+                    if(actionState == ItemTouchHelper.ACTION_STATE_SWIPE && isCurrentlyActive) {
+                        if (dX != originalPosition){
+                            //Set the background to red
+                            itemTarget.setBackgroundColor(resources.getColor(R.color.red))
+                        }
+                    }else{
+                        //If they release the swipe then turn the background back to default
+                        itemTarget.setBackgroundColor(0)
+                        itemTarget.setBackgroundResource(R.drawable.layout_border)
+                    }
+                    super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                }
+
             //Attach the item touch helper to the recycler view
         }).attachToRecyclerView(recyclerView)
     }

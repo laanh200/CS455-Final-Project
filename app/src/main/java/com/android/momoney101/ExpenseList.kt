@@ -1,8 +1,10 @@
 package com.android.momoney101
 
+import android.graphics.*
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -16,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.momoney101.list.ExpenseListAdapter
 import com.android.momoney101.model.Expense
 import com.android.momoney101.viewmodel.ExpenseViewModel
+import kotlinx.coroutines.delay
+import java.util.concurrent.TimeUnit
 
 
 class ExpenseList : AppCompatActivity() {
@@ -38,7 +42,6 @@ class ExpenseList : AppCompatActivity() {
 
         //Back to main activity
         actionBar.setDisplayHomeAsUpEnabled(true)
-
 
 
         //Link the recycler view variable with the expense_recyclerview item in activity_expense_list.xml
@@ -95,11 +98,33 @@ class ExpenseList : AppCompatActivity() {
                 //If the select the no option
                 builder.setNegativeButton("No"){ _, _ ->
                     adapter.notifyDataSetChanged();
+                    //Get the target item being swiped
+                    var itemTarget: View = viewHolder.itemView
+                    //When they are swiped but answered no then turn back the background
+                    itemTarget.setBackgroundColor(0)
+                    itemTarget.setBackgroundResource(R.drawable.layout_border)
                 }
                 //create and show the dialog alert
                 builder.create().show()
-
             }
+            override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
+                //Create a value that hold the original position of item
+                val originalPosition:Float = 0.0F
+                //Get the target item
+                var itemTarget: View = viewHolder.itemView
+                if(actionState == ItemTouchHelper.ACTION_STATE_SWIPE && isCurrentlyActive) {
+                    if (dX != originalPosition){
+                       //Set the background to red
+                        itemTarget.setBackgroundColor(resources.getColor(R.color.red))
+                    }
+                }else{
+                    //If they release the swipe then turn the background back to default
+                    itemTarget.setBackgroundColor(0)
+                    itemTarget.setBackgroundResource(R.drawable.layout_border)
+                }
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+            }
+
             //Attach the item touch helper to the recycler view
         }).attachToRecyclerView(recyclerView)
     }
@@ -157,6 +182,7 @@ class ExpenseList : AppCompatActivity() {
            Create a double variable and call the query to get the total expense of a variable
         */
         var sum: Double= mExpenseViewModel.getTotalExpense()
+     
         //Format the double variable to 2 decimal place
         var totalExpense: String? = "%.2f".format(sum)
 

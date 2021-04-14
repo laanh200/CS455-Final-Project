@@ -8,9 +8,8 @@ import com.android.momoney101.data.ExpenseDatabase
 import com.android.momoney101.model.Expense
 import com.android.momoney101.repository.ExpenseRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+
 
 /*
 Expense view model
@@ -27,7 +26,7 @@ class ExpenseViewModel (application: Application): AndroidViewModel(application)
 
     //Executed when expense view model is called
     init {
-        //Create an expense dao by getting the expense database of the application
+        //Create an expense dao variable by getting the expense database of the application
         val expenseDao = ExpenseDatabase.getDatabase(application).ExpenseDao()
         //set the repository equal to the expense DAO repository
         repository = ExpenseRepository(expenseDao)
@@ -63,7 +62,6 @@ class ExpenseViewModel (application: Application): AndroidViewModel(application)
     fun getTotalExpense():Double{
         return repository.getTotalExpense()
     }
-
 
 }
 

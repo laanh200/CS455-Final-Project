@@ -8,7 +8,6 @@ import com.android.momoney101.model.Expense
 @Dao
 interface ExpenseDao {
 
-
     //Function that insert the parameter into the database
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addExpense(expense: Expense)
