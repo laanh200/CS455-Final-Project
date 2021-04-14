@@ -33,8 +33,9 @@ Display the list of your current list of expenses and income.
   
 Delete an item off the lists.
 
-![delete expense items gif](https://user-images.githubusercontent.com/79466152/114067375-fd0e0d80-9859-11eb-945a-d961ba224fc4.gif)
-![delete income items gif](https://user-images.githubusercontent.com/79466152/114067383-fe3f3a80-9859-11eb-8f12-e0428240000b.gif)
+![delete income item gif](https://user-images.githubusercontent.com/79466152/114766013-1e23a200-9d23-11eb-9f3e-76bd1116c2f9.gif)
+![delete expense item gif](https://user-images.githubusercontent.com/79466152/114766018-1ebc3880-9d23-11eb-8039-a0fc7c822bbd.gif)
+
 
 Delete all the items off the list.
 
