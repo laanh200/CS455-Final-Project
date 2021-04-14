@@ -31,10 +31,16 @@ Display the list of your current list of expenses and income.
 ![income list gif](https://user-images.githubusercontent.com/79466152/114067312-ebc50100-9859-11eb-9966-f6e5bb7e1529.gif)
 
   
-Deleting the item off the lists.
+Delete an item off the lists.
 
-![delete expense items gif](https://user-images.githubusercontent.com/79466152/114067375-fd0e0d80-9859-11eb-945a-d961ba224fc4.gif)
-![delete income items gif](https://user-images.githubusercontent.com/79466152/114067383-fe3f3a80-9859-11eb-8f12-e0428240000b.gif)
+![delete income item gif](https://user-images.githubusercontent.com/79466152/114766013-1e23a200-9d23-11eb-9f3e-76bd1116c2f9.gif)
+![delete expense item gif](https://user-images.githubusercontent.com/79466152/114766018-1ebc3880-9d23-11eb-8039-a0fc7c822bbd.gif)
+
+
+Delete all the items off the list.
+
+![delete all items in list gif](https://user-images.githubusercontent.com/79466152/114633264-756f3700-9c7d-11eb-824c-acf59e32a4b7.gif)
+
 
 Dark mode.
 
@@ -63,10 +69,15 @@ To access the current list of expenses or income.
 
 ![Click on navigation drawer menu](https://user-images.githubusercontent.com/79466152/114068227-ed42f900-985a-11eb-8481-10e284aac1b9.png)![nav view - expense list](https://user-images.githubusercontent.com/79466152/114068246-f3d17080-985a-11eb-9c86-4ce5df6bb856.png)![nav view - income](https://user-images.githubusercontent.com/79466152/114068256-f633ca80-985a-11eb-8313-5c4fa55ec26f.png)
 
-To delete an item from the list. Swipe left or right.
+To delete an item from a list. Swipe left or right.
 
 ![swipe to delete](https://user-images.githubusercontent.com/79466152/114291754-1627e180-9a47-11eb-898e-4146c6332bde.png)
 ![delete item](https://user-images.githubusercontent.com/79466152/114327670-3adb9200-9af7-11eb-9f5d-868459e42564.PNG)
+
+To delete all the items from a list.
+
+![delete all item](https://user-images.githubusercontent.com/79466152/114633330-90da4200-9c7d-11eb-8b4d-6317d2cc5dac.PNG)
+![delete all item question](https://user-images.githubusercontent.com/79466152/114633336-920b6f00-9c7d-11eb-82ef-ad227d9ef7ef.PNG)
 
 
 To turn on dark mode. 
